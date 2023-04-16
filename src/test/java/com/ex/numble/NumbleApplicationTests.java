@@ -1,4 +1,4 @@
-package com.ex.mopi;
+package com.ex.numble;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

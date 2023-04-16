@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ex.numble.mapper.NovelMapper">
+	<select	id="selectMyNovel" resultType="com.ex.numble.dto.MyNovelDTO">
+		select mn.READ_DATE
+			   , mn.E_SEQ as recent_episode
+			   , e.title
+			   , e.`ORDER` as last_episode
+		from my_novel mn
+			 , novel n
+			 , (
+			 	select n.SEQ
+			 		, n.title
+			 		, max(e.`order`) as `order`
+				from novel n, episode e
+				where n.SEQ = e.`N.SEQ` 
+				group by n.title, n.SEQ 
+			) e
+		where mn.N_SEQ = n.SEQ
+			and n.seq = e.SEQ
+	</select>
+	<insert id="addNovel" parameterType="com.ex.numble.dto.NovelDTO">
+		insert into novel (
+			INTRO
+			,TITLE
+			,AUTHOR
+		)
+		values(
+			#{intro}
+			,#{title}
+			,#{author}
+			)
+			
+	</insert>
+	<delete id="deleteNovel" parameterType="int">
+		delete from novel 
+		where seq = #{seq}
+
+	</delete>
+	<select id="readEpisode" parameterType="int" resultType="com.ex.numble.dto.EpisodeDTO">
+		select TICKET,WRITE_DATE,`order` from episode e 
+		where `N.SEQ` = #{seq}
+		order by `ORDER` desc
+	
+	</select>
+	<select id="bestSeller" resultType="com.ex.numble.dto.BestSellerDTO">
+		select m.N_SEQ as seq, n.TITLE, count(m.N_SEQ) as cnt
+			from my_novel m, novel n
+			where READ_DATE = date_format(sysdate(),'%y-%m-%d')
+			        and m.N_SEQ = n.SEQ
+			group by N_SEQ
+			order by cnt desc
+	</select>
+</mapper>

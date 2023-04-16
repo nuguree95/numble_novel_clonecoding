@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ex.numble.mapper.UserMapper">
+
+<select id="getMyTicket" parameterType="int" resultType="int">
+	select ticket from point 
+	where u_seq = #{seq}
+</select>
+
+<update id="useTicket" parameterType="int">
+	update point set
+	ticket = #{remainTicket}
+	where u_seq = #{u_seq}
+</update>
+
+</mapper>

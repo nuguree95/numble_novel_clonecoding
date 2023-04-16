@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "82c718b4-61ed-4321-9776-75dc347aa3b6",
+		"name": "넘블 웹소설 클론코딩",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ticket_Controller",
+			"item": [
+				{
+					"name": "에피소드구매",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticket\" : 8\r\n    ,\"point\" : 680\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/ticket",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ticket"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Novel_Controller",
+			"item": [
+				{
+					"name": "소설삭제",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/novels/delete/15",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"novels",
+								"delete",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "소설추가",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"intro\" : \"소설소개란\"\r\n    ,\"title\" : \"소설 제목\"\r\n    ,\"author\" : \"소설 작가\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/novels/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"novels",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "나의 소설",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/novels/my",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"novels",
+								"my"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "소장권충전",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticket\" : 3,\r\n    \"point\": 270\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/ticket",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ticket"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Episode_Controller",
+			"item": [
+				{
+					"name": "소설의 에피소드 조회",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/episode/episode/12",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"episode",
+								"episode",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "에피소드 구매",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticket\" : 2\r\n    ,\"e_seq\" : 2\r\n    ,\"n_seq\" : 12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/episode/buy",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"episode",
+								"buy"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Main_Controller",
+			"item": [
+				{
+					"name": "베스트셀러",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/best-seller",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"best-seller"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "로그인",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
